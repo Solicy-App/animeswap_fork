@@ -273,9 +273,9 @@ const getChainNameFromId = (id: string | number) => {
   return CHAIN_IDS_TO_NAMES[id as SupportedChainId] || ''
 }
 
-const NETWORK_SELECTOR_CHAINS = [SupportedChainId.APTOS]
+const NETWORK_SELECTOR_CHAINS = [SupportedChainId.APTOS_DEVNET]
 // if (!isProductionEnv()) {
-NETWORK_SELECTOR_CHAINS.push(SupportedChainId.APTOS_DEVNET)
+NETWORK_SELECTOR_CHAINS.push(SupportedChainId.APTOS)
 NETWORK_SELECTOR_CHAINS.push(SupportedChainId.APTOS_TESTNET)
 // }
 
