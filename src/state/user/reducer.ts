@@ -48,20 +48,20 @@ export interface UserState {
 }
 
 export const initialState: UserState = {
-  chainId: SupportedChainId.APTOS,
+  chainId: SupportedChainId.APTOS_DEVNET,
   matchesDarkMode: false,
   userDarkMode: true,
   userLocale: null,
   userSlippageTolerance: 50, // 50BP
   userDeadline: DEFAULT_DEADLINE_FROM_NOW,
   coins: {
-    [SupportedChainId.APTOS]: APTOS_CoinInfo,
+    [SupportedChainId.APTOS_DEVNET]: APTOS_CoinInfo,
   },
   tempCoins: {
-    [SupportedChainId.APTOS]: {},
+    [SupportedChainId.APTOS_DEVNET]: {},
   },
   pairs: {
-    [SupportedChainId.APTOS]: {},
+    [SupportedChainId.APTOS_DEVNET]: {},
   },
   showSwapDropdownDetails: false,
 }
