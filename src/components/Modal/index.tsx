@@ -10,7 +10,6 @@ import { isMobile } from '../../utils/userAgent'
 
 const AnimatedDialogOverlay = animated(DialogOverlay)
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const StyledDialogOverlay = styled(({ minHeight, maxHeight, mobile, isOpen, redesignFlag, ...rest }) => (
   <AnimatedDialogOverlay {...rest} />
 ))<{ redesignFlag?: boolean }>`
@@ -27,7 +26,6 @@ const StyledDialogOverlay = styled(({ minHeight, maxHeight, mobile, isOpen, rede
 
 const AnimatedDialogContent = animated(DialogContent)
 // destructure to not pass custom props to Dialog DOM element
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, redesignFlag, ...rest }) => (
   <AnimatedDialogContent {...rest} />
 )).attrs({
