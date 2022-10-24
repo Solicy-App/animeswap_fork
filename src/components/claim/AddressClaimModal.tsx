@@ -72,16 +72,16 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
   async function faucetBTC() {
     const transaction = {
       type: 'entry_function_payload',
-      function: '0x16fe2df00ea7dde4a63409201f7f4e536bde7bb7335526a35d05111e68aa322c::FaucetV1::request',
-      type_arguments: ['0x16fe2df00ea7dde4a63409201f7f4e536bde7bb7335526a35d05111e68aa322c::TestCoinsV1::BTC'],
-      arguments: ['0x16fe2df00ea7dde4a63409201f7f4e536bde7bb7335526a35d05111e68aa322c'],
+      function: '0x801ccf2187d7c75da60294212613a29ea90d37abc5c98feefffcbcf87739ae57::FaucetV1::request',
+      type_arguments: ['0x801ccf2187d7c75da60294212613a29ea90d37abc5c98feefffcbcf87739ae57::TestCoinsV1::BTC'],
+      arguments: ['0x801ccf2187d7c75da60294212613a29ea90d37abc5c98feefffcbcf87739ae57'],
     }
     await SignAndSubmitTransaction(transaction)
     setTimeout(() => {
       updateSinceTimeBTC()
       ConnectionInstance.getCoinBalance(
         account,
-        '0x16fe2df00ea7dde4a63409201f7f4e536bde7bb7335526a35d05111e68aa322c::TestCoinsV1::BTC'
+        '0x801ccf2187d7c75da60294212613a29ea90d37abc5c98feefffcbcf87739ae57::TestCoinsV1::BTC'
       )
     }, REFRESH_TIMEOUT)
   }
@@ -90,7 +90,7 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
     if (account) {
       const res = await ConnectionInstance.getAccountResource(
         account,
-        '0x16fe2df00ea7dde4a63409201f7f4e536bde7bb7335526a35d05111e68aa322c::FaucetV1::Restricted<0x16fe2df00ea7dde4a63409201f7f4e536bde7bb7335526a35d05111e68aa322c::TestCoinsV1::BTC>'
+        '0x801ccf2187d7c75da60294212613a29ea90d37abc5c98feefffcbcf87739ae57::FaucetV1::Restricted<0x801ccf2187d7c75da60294212613a29ea90d37abc5c98feefffcbcf87739ae57::TestCoinsV1::BTC>'
       )
       if (res && res.since) {
         const date = new Date(Number(res.since * 1e3) + period)
@@ -104,16 +104,16 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
   async function faucetUSDT() {
     const transaction = {
       type: 'entry_function_payload',
-      function: '0x16fe2df00ea7dde4a63409201f7f4e536bde7bb7335526a35d05111e68aa322c::FaucetV1::request',
-      type_arguments: ['0x16fe2df00ea7dde4a63409201f7f4e536bde7bb7335526a35d05111e68aa322c::TestCoinsV1::USDT'],
-      arguments: ['0x16fe2df00ea7dde4a63409201f7f4e536bde7bb7335526a35d05111e68aa322c'],
+      function: '0x801ccf2187d7c75da60294212613a29ea90d37abc5c98feefffcbcf87739ae57::FaucetV1::request',
+      type_arguments: ['0x801ccf2187d7c75da60294212613a29ea90d37abc5c98feefffcbcf87739ae57::TestCoinsV1::USDT'],
+      arguments: ['0x801ccf2187d7c75da60294212613a29ea90d37abc5c98feefffcbcf87739ae57'],
     }
     await SignAndSubmitTransaction(transaction)
     setTimeout(() => {
       updateSinceTimeUSDT()
       ConnectionInstance.getCoinBalance(
         account,
-        '0x16fe2df00ea7dde4a63409201f7f4e536bde7bb7335526a35d05111e68aa322c::TestCoinsV1::USDT'
+        '0x801ccf2187d7c75da60294212613a29ea90d37abc5c98feefffcbcf87739ae57::TestCoinsV1::USDT'
       )
     }, REFRESH_TIMEOUT)
   }
@@ -122,7 +122,7 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
     if (account) {
       const res = await ConnectionInstance.getAccountResource(
         account,
-        '0x16fe2df00ea7dde4a63409201f7f4e536bde7bb7335526a35d05111e68aa322c::FaucetV1::Restricted<0x16fe2df00ea7dde4a63409201f7f4e536bde7bb7335526a35d05111e68aa322c::TestCoinsV1::USDT>'
+        '0x801ccf2187d7c75da60294212613a29ea90d37abc5c98feefffcbcf87739ae57::FaucetV1::Restricted<0x801ccf2187d7c75da60294212613a29ea90d37abc5c98feefffcbcf87739ae57::TestCoinsV1::USDT>'
       )
       if (res && res.since) {
         const date = new Date(Number(res.since * 1e3) + period)
