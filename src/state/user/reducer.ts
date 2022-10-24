@@ -66,24 +66,24 @@ export const initialState: UserState = {
   showSwapDropdownDetails: false,
 }
 
-// if (!isProductionEnv()) {
-initialState.chainId = SupportedChainId.APTOS_DEVNET
-initialState.coins = {
-  [SupportedChainId.APTOS]: APTOS_CoinInfo,
-  [SupportedChainId.APTOS_TESTNET]: APTOS_TESTNET_CoinInfo,
-  [SupportedChainId.APTOS_DEVNET]: APTOS_DEVNET_CoinInfo,
+if (!isProductionEnv()) {
+  initialState.chainId = SupportedChainId.APTOS_DEVNET
+  initialState.coins = {
+    [SupportedChainId.APTOS]: APTOS_CoinInfo,
+    [SupportedChainId.APTOS_TESTNET]: APTOS_TESTNET_CoinInfo,
+    [SupportedChainId.APTOS_DEVNET]: APTOS_DEVNET_CoinInfo,
+  }
+  initialState.tempCoins = {
+    [SupportedChainId.APTOS]: {},
+    [SupportedChainId.APTOS_TESTNET]: {},
+    [SupportedChainId.APTOS_DEVNET]: {},
+  }
+  initialState.pairs = {
+    [SupportedChainId.APTOS]: {},
+    [SupportedChainId.APTOS_TESTNET]: {},
+    [SupportedChainId.APTOS_DEVNET]: {},
+  }
 }
-initialState.tempCoins = {
-  [SupportedChainId.APTOS]: {},
-  [SupportedChainId.APTOS_TESTNET]: {},
-  [SupportedChainId.APTOS_DEVNET]: {},
-}
-initialState.pairs = {
-  [SupportedChainId.APTOS]: {},
-  [SupportedChainId.APTOS_TESTNET]: {},
-  [SupportedChainId.APTOS_DEVNET]: {},
-}
-// }
 
 const userSlice = createSlice({
   name: 'user',
