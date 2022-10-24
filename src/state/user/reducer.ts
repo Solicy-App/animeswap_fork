@@ -55,13 +55,13 @@ export const initialState: UserState = {
   userSlippageTolerance: 50, // 50BP
   userDeadline: DEFAULT_DEADLINE_FROM_NOW,
   coins: {
-    [SupportedChainId.APTOS_DEVNET]: APTOS_CoinInfo,
+    [SupportedChainId.APTOS]: APTOS_CoinInfo,
   },
   tempCoins: {
-    [SupportedChainId.APTOS_DEVNET]: {},
+    [SupportedChainId.APTOS]: {},
   },
   pairs: {
-    [SupportedChainId.APTOS_DEVNET]: {},
+    [SupportedChainId.APTOS]: {},
   },
   showSwapDropdownDetails: false,
 }
