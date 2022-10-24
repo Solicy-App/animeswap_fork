@@ -318,12 +318,12 @@ export default function NetworkSelector() {
 
         if (isProductionEnv()) {
           // link to staging website
-          if ([SupportedChainId.APTOS_DEVNET, SupportedChainId.APTOS_TESTNET].includes(targetChain)) {
-            window.open('/')
-            return
-          } else {
+          // if ([SupportedChainId.APTOS_DEVNET, SupportedChainId.APTOS_TESTNET].includes(targetChain)) {
+            // window.open('/')
+            // return
+          // } else {
             switchChain(connection, targetChain)
-          }
+          // }
         } else {
           switchChain(connection, targetChain)
         }
