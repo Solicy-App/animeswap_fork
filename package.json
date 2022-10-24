@@ -92,7 +92,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "@animeswap.org/v1-sdk": "file:./v1-sdk/",
+    "@animeswap.org/v1-sdk": "file:./sdk/",
     "@babel/runtime": "^7.19.4",
     "@fontsource/inter": "^4.5.14",
     "@lingui/core": "^3.14.0",
