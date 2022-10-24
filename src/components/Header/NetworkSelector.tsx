@@ -319,7 +319,7 @@ export default function NetworkSelector() {
         if (isProductionEnv()) {
           // link to staging website
           if ([SupportedChainId.APTOS_DEVNET, SupportedChainId.APTOS_TESTNET].includes(targetChain)) {
-            window.open('/')
+            window.open('https://staging.animeswap.org')
             return
           } else {
             switchChain(connection, targetChain)
