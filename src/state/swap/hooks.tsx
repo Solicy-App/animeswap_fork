@@ -212,7 +212,6 @@ export function useDefaultsFromURLSearch(): SwapState {
       })
     )
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, chainId])
 
   return parsedSwapState
