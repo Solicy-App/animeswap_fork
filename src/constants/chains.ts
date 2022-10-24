@@ -7,15 +7,15 @@ export enum SupportedChainId {
 }
 
 export const CHAIN_IDS_TO_NAMES = {
-  [SupportedChainId.APTOS]: 'aptos',
+  [SupportedChainId.APTOS]: 'aptos_devnet',
   [SupportedChainId.APTOS_TESTNET]: 'aptos_testnet',
-  [SupportedChainId.APTOS_DEVNET]: 'aptos_devnet',
+  [SupportedChainId.APTOS_DEVNET]: 'aptos',
 }
 
 export const CHAIN_IDS_TO_SDK_NETWORK = {
-  [SupportedChainId.APTOS]: NetworkType.Mainnet,
+  [SupportedChainId.APTOS]: NetworkType.Devnet,
   [SupportedChainId.APTOS_TESTNET]: NetworkType.Testnet,
-  [SupportedChainId.APTOS_DEVNET]: NetworkType.Devnet,
+  [SupportedChainId.APTOS_DEVNET]: NetworkType.Mainnet,
 }
 
 export function isSupportedChain(chainId: number | undefined): chainId is SupportedChainId {
