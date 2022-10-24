@@ -1,9 +1,9 @@
 import { NetworkType } from '@animeswap.org/v1-sdk'
 
 export enum SupportedChainId {
-  APTOS = 1,
+  APTOS = 34,
   APTOS_TESTNET = 2,
-  APTOS_DEVNET = 34,
+  APTOS_DEVNET = 1,
 }
 
 export const CHAIN_IDS_TO_NAMES = {
