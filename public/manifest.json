@@ -1,10 +1,10 @@
 {
   "background_color": "#fff",
   "display": "standalone",
-  "homepage_url": "https://app.animeswap.org",
+  "homepage_url": "https://test4--fabulous-sawine-ee9ce5.netlify.app/",
   "providedBy": {
-    "name": "AnimeSwap",
-    "url": "https://animeswap.org"
+    "name": "Solicy",
+    "url": "https://solicy.net/"
   },
   "icons": [
     {
@@ -21,10 +21,10 @@
     }
   ],
   "orientation": "portrait",
-  "name": "AnimeSwap",
-  "description": "Swap or provide liquidity on the AnimeSwap Protocol",
+  "name": "Swapper",
+  "description": "Swap or provide liquidity on the Swapper Protocol",
   "iconPath": "./images/256x256_App_Icon_Black.svg",
-  "short_name": "AnimeSwap",
+  "short_name": "Swapper",
   "start_url": ".",
   "theme_color": "#8A2BE2"
 }
