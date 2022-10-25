@@ -72,41 +72,48 @@ export default function Explore() {
   useEffect(() => {
     const preparePoolData = async () => {
       const pairs = await ConnectionInstance.getAllPair()
+      console.log(pairs)
       const USD_per_APT = queryPrice(pairs, nativeCoin.address, stableCoin.address)
       const tempPoolData: PoolData[] = []
-      for (const pair of Object.values(pairs)) {
-        let tvlAPT = BIG_INT_ZERO
-        let tvlUSD = BIG_INT_ZERO
-        tvlAPT = queryToUnitCoin(
-          pairs,
-          pair.coinX,
-          pair.coinXReserve,
-          pair.coinY,
-          pair.coinYReserve,
-          nativeCoin.address
-        )
-        if (tvlAPT.gt(0)) {
-          tvlUSD = tvlAPT.mul(USD_per_APT)
-        } else {
-          tvlUSD = queryToUnitCoin(
+      try {
+        for (const pair of Object.values(pairs)) {
+          console.log(pair)
+          let tvlAPT = BIG_INT_ZERO
+          let tvlUSD = BIG_INT_ZERO
+          tvlAPT = queryToUnitCoin(
             pairs,
             pair.coinX,
             pair.coinXReserve,
             pair.coinY,
             pair.coinYReserve,
-            stableCoin.address
+            nativeCoin.address
           )
-          tvlAPT = tvlUSD.div(USD_per_APT)
+          if (tvlAPT.gt(0)) {
+            tvlUSD = tvlAPT.mul(USD_per_APT)
+          } else {
+            tvlUSD = queryToUnitCoin(
+              pairs,
+              pair.coinX,
+              pair.coinXReserve,
+              pair.coinY,
+              pair.coinYReserve,
+              stableCoin.address
+            )
+            tvlAPT = tvlUSD.div(USD_per_APT)
+          }
+          tempPoolData.push({
+            pair,
+            tvlAPT,
+            tvlUSD: tvlUSD.div(Utils.pow10(stableCoin.decimals)).toNumber(),
+            volumeUSD: 0,
+            volumeUSDWeek: 0,
+          })
         }
-        tempPoolData.push({
-          pair,
-          tvlAPT,
-          tvlUSD: tvlUSD.div(Utils.pow10(stableCoin.decimals)).toNumber(),
-          volumeUSD: 0,
-          volumeUSDWeek: 0,
-        })
+        setPoolDatas(tempPoolData)
+      } catch (e) {
+        // pass 
+        console.log("Error trying fetch charts data one more time:", e)
       }
-      setPoolDatas(tempPoolData)
     }
     preparePoolData()
   }, [])

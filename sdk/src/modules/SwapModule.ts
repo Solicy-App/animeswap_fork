@@ -536,6 +536,7 @@ export class SwapModule implements IModule {
       modules.ResourceAccountAddress,
       pairInfoType,
     )
+
     if (!pairInfo) {
       throw new Error(`PairInfo (${pairInfoType}) not found`)
     }

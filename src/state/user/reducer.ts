@@ -83,6 +83,61 @@ if (!isProductionEnv()) {
     [SupportedChainId.APTOS_TESTNET]: {},
     [SupportedChainId.APTOS_DEVNET]: {},
   }
+} else {
+  // production mode 
+  // redux store for Mainet resources
+  initialState.chainId = SupportedChainId.APTOS
+  initialState.coins = {
+    [SupportedChainId.APTOS]: APTOS_CoinInfo,
+    [SupportedChainId.APTOS_TESTNET]: APTOS_TESTNET_CoinInfo,
+    [SupportedChainId.APTOS_DEVNET]: APTOS_DEVNET_CoinInfo,
+  }
+  initialState.tempCoins = {
+    [SupportedChainId.APTOS]: {},
+    [SupportedChainId.APTOS_TESTNET]: {},
+    [SupportedChainId.APTOS_DEVNET]: {},
+  }
+  initialState.pairs = {
+    [SupportedChainId.APTOS]: {},
+    [SupportedChainId.APTOS_TESTNET]: {},
+    [SupportedChainId.APTOS_DEVNET]: {},
+  }
+  
+  // redux store for Devnet resources
+  initialState.chainId = SupportedChainId.APTOS_DEVNET
+  initialState.coins = {
+    [SupportedChainId.APTOS]: APTOS_CoinInfo,
+    [SupportedChainId.APTOS_TESTNET]: APTOS_TESTNET_CoinInfo,
+    [SupportedChainId.APTOS_DEVNET]: APTOS_DEVNET_CoinInfo,
+  }
+  initialState.tempCoins = {
+    [SupportedChainId.APTOS]: {},
+    [SupportedChainId.APTOS_TESTNET]: {},
+    [SupportedChainId.APTOS_DEVNET]: {},
+  }
+  initialState.pairs = {
+    [SupportedChainId.APTOS]: {},
+    [SupportedChainId.APTOS_TESTNET]: {},
+    [SupportedChainId.APTOS_DEVNET]: {},
+  }
+
+  // redux store for Testnet resources
+  initialState.chainId = SupportedChainId.APTOS_TESTNET
+  initialState.coins = {
+    [SupportedChainId.APTOS]: APTOS_CoinInfo,
+    [SupportedChainId.APTOS_TESTNET]: APTOS_TESTNET_CoinInfo,
+    [SupportedChainId.APTOS_DEVNET]: APTOS_DEVNET_CoinInfo,
+  }
+  initialState.tempCoins = {
+    [SupportedChainId.APTOS]: {},
+    [SupportedChainId.APTOS_TESTNET]: {},
+    [SupportedChainId.APTOS_DEVNET]: {},
+  }
+  initialState.pairs = {
+    [SupportedChainId.APTOS]: {},
+    [SupportedChainId.APTOS_TESTNET]: {},
+    [SupportedChainId.APTOS_DEVNET]: {},
+  }
 }
 
 const userSlice = createSlice({
@@ -158,9 +213,7 @@ const userSlice = createSlice({
         ![SupportedChainId.APTOS, SupportedChainId.APTOS_TESTNET, SupportedChainId.APTOS_DEVNET].includes(state.chainId)
       ) {
         state.chainId = SupportedChainId.APTOS
-        if (!isProductionEnv()) {
-          state.chainId = SupportedChainId.APTOS_TESTNET
-        }
+        state.chainId = SupportedChainId.APTOS_TESTNET
       }
       // update local coin list
       state.coins = {
@@ -173,35 +226,32 @@ const userSlice = createSlice({
       state.tempCoins = {
         [SupportedChainId.APTOS]: {},
       }
-      if (!isProductionEnv()) {
-        state.coins = {
-          [SupportedChainId.APTOS]: {
-            ...APTOS_CoinInfo,
-            ...state.coins[SupportedChainId.APTOS],
-            ...APTOS_CoinInfo,
-          },
-          [SupportedChainId.APTOS_TESTNET]: {
-            ...APTOS_TESTNET_CoinInfo,
-            ...state.coins[SupportedChainId.APTOS_TESTNET],
-            ...APTOS_TESTNET_CoinInfo,
-          },
-          [SupportedChainId.APTOS_DEVNET]: {
-            ...APTOS_DEVNET_CoinInfo,
-            ...state.coins[SupportedChainId.APTOS_DEVNET],
-            ...APTOS_DEVNET_CoinInfo,
-          },
-        }
-        state.tempCoins = {
-          [SupportedChainId.APTOS]: {},
-        }
+      state.coins = {
+        [SupportedChainId.APTOS]: {
+          ...APTOS_CoinInfo,
+          ...state.coins[SupportedChainId.APTOS],
+          ...APTOS_CoinInfo,
+        },
+        [SupportedChainId.APTOS_TESTNET]: {
+          ...APTOS_TESTNET_CoinInfo,
+          ...state.coins[SupportedChainId.APTOS_TESTNET],
+          ...APTOS_TESTNET_CoinInfo,
+        },
+        [SupportedChainId.APTOS_DEVNET]: {
+          ...APTOS_DEVNET_CoinInfo,
+          ...state.coins[SupportedChainId.APTOS_DEVNET],
+          ...APTOS_DEVNET_CoinInfo,
+        },
       }
+      state.tempCoins = {
+        [SupportedChainId.APTOS]: {},
+      }
+     
 
       // init local pair
       state.pairs[SupportedChainId.APTOS] = state.pairs[SupportedChainId.APTOS] || {}
-      if (!isProductionEnv()) {
-        state.pairs[SupportedChainId.APTOS_TESTNET] = state.pairs[SupportedChainId.APTOS_TESTNET] || {}
-        state.pairs[SupportedChainId.APTOS_DEVNET] = state.pairs[SupportedChainId.APTOS_DEVNET] || {}
-      }
+      state.pairs[SupportedChainId.APTOS_TESTNET] = state.pairs[SupportedChainId.APTOS_TESTNET] || {}
+      state.pairs[SupportedChainId.APTOS_DEVNET] = state.pairs[SupportedChainId.APTOS_DEVNET] || {}
 
       // slippage isnt being tracked in local storage, reset to default
       // noinspection SuspiciousTypeOfGuard
