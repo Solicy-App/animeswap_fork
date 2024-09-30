@@ -13,3 +13,6 @@ An open source interface for AnimeSwap -- a protocol for decentralized exchange 
 ## Accessing the AnimeSwap Interface
 
 To access the AnimeSwap Interface, visit [app.animeswap.org](https://app.animeswap.org).
+
+## About
+This project is maintained by [Solicy Software and Blockchain Company](https://solicy.net/?utm_source=github&utm_medium=social)
